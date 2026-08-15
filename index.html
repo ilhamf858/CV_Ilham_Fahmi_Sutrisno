@@ -3,18 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV & Portofolio | Ilham Fahmi Sutrisno</title>
-  <!-- Font Awesome 6 -->
+
+  <!-- ===== META TAGS SEO ===== -->
+  <title>CV & Portofolio | Ilham Fahmi Sutrisno - Teknisi CNC & Drafter</title>
+  <meta name="description" content="Portofolio Ilham Fahmi Sutrisno, Teknisi Manufaktur & Drafter CNC berpengalaman 5+ tahun. Lihat proyek desain 3D, CNC, dan produksi." />
+  <meta name="keywords" content="teknisi CNC, drafter, manufaktur, SolidWorks, SketchUp, Tegal, CNC milling, cutting laser" />
+  <meta name="author" content="Ilham Fahmi Sutrisno" />
+  <link rel="canonical" href="https://ilhamf858.github.io/CV_Ilham_Fahmi_Sutrisno/" />
+
+  <!-- ===== LIGHTBOX2 (CSS) ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+
+  <!-- ===== FONT AWESOME 6 ===== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
   <style>
+    /* ===== RESET & VARIABEL (WARNA ORANYE) ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
+      --primary: #f97316;        /* ORANYE UTAMA */
+      --primary-dark: #ea580c;   /* ORANYE GELAP */
+      --primary-light: #ffedd5;  /* ORANYE SANGAT MUDAH (untuk latar) */
       --bg: #f1f5f9;
       --card-bg: #ffffff;
       --text: #0f172a;
@@ -76,7 +89,7 @@
     .tab-btn.active {
       background: var(--primary);
       color: #fff;
-      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
     }
     .tab-btn:hover:not(.active) {
       color: var(--text);
@@ -233,7 +246,7 @@
       color: var(--primary);
     }
 
-    /* ===== PORTOFOLIO (TEXT + IMAGE) ===== */
+    /* ===== PORTOFOLIO (Teks + Gambar) ===== */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -252,7 +265,7 @@
     }
     .project-img {
       height: 170px;
-      background: #e0e7ff;
+      background: var(--primary-light);
       overflow: hidden;
     }
     .project-img img {
@@ -300,7 +313,7 @@
       text-decoration: underline;
     }
 
-    /* ===== GALERI FOTO (HALAMAN BARU) ===== */
+    /* ===== GALERI FOTO + LIGHTBOX ===== */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -316,6 +329,9 @@
     .gallery-item:hover {
       transform: scale(1.02);
       box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    }
+    .gallery-item a {
+      display: block;
     }
     .gallery-item img {
       width: 100%;
@@ -382,9 +398,9 @@
 <body>
   <div class="container">
 
-    <!-- NAVBAR + 3 TAB -->
+    <!-- ===== NAVBAR + 3 TAB ===== -->
     <nav>
-      <div class="logo"><i class="fas fa-cubes"></i> Ilham Fahmi Sutrisno</div>
+      <div class="logo"><i class="fas fa-cubes"></i> Ilham Fahmi</div>
       <div class="tab-group" id="tabGroup">
         <button class="tab-btn active" data-tab="cv"><i class="fas fa-file-alt"></i> CV</button>
         <button class="tab-btn" data-tab="portfolio"><i class="fas fa-folder-open"></i> Portofolio</button>
@@ -496,7 +512,7 @@
       </div>
     </div>
 
-    <!-- ===== TAB 2: PORTOFOLIO (Teks + Gambar) ===== -->
+    <!-- ===== TAB 2: PORTOFOLIO ===== -->
     <div id="portfolio" class="tab-content">
       <div style="margin-bottom:1.5rem;">
         <h2 style="font-size:1.8rem; display:flex; align-items:center; gap:0.8rem;">
@@ -563,42 +579,59 @@
       </div>
     </div>
 
-    <!-- ===== TAB 3: GALERI FOTO (HALAMAN BARU KHUSUS FOTO) ===== -->
+    <!-- ===== TAB 3: GALERI FOTO + LIGHTBOX ===== -->
     <div id="gallery" class="tab-content">
       <div style="margin-bottom:1.5rem;">
         <h2 style="font-size:1.8rem; display:flex; align-items:center; gap:0.8rem;">
           <i class="fas fa-images" style="color:var(--primary);"></i> Galeri Proyek
         </h2>
-        <p style="color:var(--text-light);">Koleksi foto proses kerja dan hasil produksi.</p>
+        <p style="color:var(--text-light);">Klik foto untuk memperbesar.</p>
       </div>
 
       <div class="gallery-grid">
-        <!-- Ganti nama file di bawah ini dengan foto Anda -->
+        <!-- Setiap foto dibungkus <a> agar bisa di-lightbox -->
         <div class="gallery-item">
-          <img src="images/galeri-1.png" alt="Proses CNC 1">
+          <a href="images/galeri-1.png" data-lightbox="gallery" data-title="Proses Pemotongan CNC">
+            <img src="images/galeri-1.png" alt="Proses CNC 1">
+          </a>
           <div class="caption">Proses Pemotongan CNC</div>
         </div>
+
         <div class="gallery-item">
-          <img src="images/galeri-2.png" alt="Desain 3D">
+          <a href="images/galeri-2.png" data-lightbox="gallery" data-title="Desain 3D SolidWorks">
+            <img src="images/galeri-2.png" alt="Desain 3D">
+          </a>
           <div class="caption">Desain 3D SolidWorks</div>
         </div>
+
         <div class="gallery-item">
-          <img src="images/galeri-3.png" alt="Hasil Produksi">
+          <a href="images/galeri-3.png" data-lightbox="gallery" data-title="Hasil Produksi Akhir">
+            <img src="images/galeri-3.png" alt="Hasil Produksi">
+          </a>
           <div class="caption">Hasil Produksi Akhir</div>
         </div>
+
         <div class="gallery-item">
-          <img src="images/galeri-4.png" alt="Proses Laser">
+          <a href="images/galeri-4.png" data-lightbox="gallery" data-title="Proses Cutting Laser">
+            <img src="images/galeri-4.png" alt="Proses Laser">
+          </a>
           <div class="caption">Proses Cutting Laser</div>
         </div>
+
         <div class="gallery-item">
-          <img src="images/galeri-5.png" alt="Assembly">
+          <a href="images/galeri-5.png" data-lightbox="gallery" data-title="Proses Perakitan (Assembly)">
+            <img src="images/galeri-5.png" alt="Assembly">
+          </a>
           <div class="caption">Proses Perakitan (Assembly)</div>
         </div>
+
         <div class="gallery-item">
-          <img src="images/galeri-6.png" alt="Finishing">
-          <div class="caption">Finishing & Quality Control</div>
+          <a href="images/galeri-6.png" data-lightbox="gallery" data-title="Finishing & Quality Control">
+            <img src="images/galeri-6.png" alt="Finishing">
+          </a>
+          <div class="caption">Finishing &amp; Quality Control</div>
         </div>
-        <!-- Tambahkan lebih banyak jika perlu, tinggal duplikat blok di atas -->
+        <!-- Tambahkan lebih banyak foto jika perlu, duplikat blok di atas -->
       </div>
     </div>
 
@@ -609,6 +642,10 @@
 
   </div>
 
+  <!-- ===== LIGHTBOX2 (JS) ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+  <!-- ===== SCRIPT TAB ===== -->
   <script>
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = {
