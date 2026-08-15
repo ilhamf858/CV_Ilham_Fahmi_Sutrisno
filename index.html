@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV & Portofolio | Ilham Fahmi Sutrisno</title>
-  <!-- Font Awesome 6 (tetap dipakai untuk ikon lainnya) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ===== RESET & VARIABEL ===== */
     * {
       margin: 0;
       padding: 0;
@@ -35,8 +34,6 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
-    /* ===== NAVBAR & TAB ===== */
     nav {
       display: flex;
       justify-content: space-between;
@@ -82,8 +79,6 @@
     .tab-btn:hover:not(.active) {
       color: var(--text);
     }
-
-    /* ===== TAB CONTENT ===== */
     .tab-content {
       display: none;
       animation: fadeIn 0.4s ease;
@@ -95,8 +90,6 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* ===== LAYOUT CV (2 kolom) ===== */
     .cv-grid {
       display: grid;
       grid-template-columns: 1fr 2.2fr;
@@ -118,14 +111,14 @@
       text-align: center;
     }
     .avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      overflow: hidden; /* penting agar gambar mengikuti bentuk bulat */
-      border: 4px solid var(--primary);
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;   /* <-- TIDAK BULAT, hanya sedikit melengkung */
+      overflow: hidden;
+      border: 3px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.2);
       margin: 0 auto 1rem auto;
-      background: #dbeafe; /* fallback jika gambar gagal dimuat */
-      flex-shrink: 0;
+      background: #dbeafe;
     }
     .avatar img {
       width: 100%;
@@ -144,11 +137,6 @@
       color: var(--text-light);
       font-size: 0.95rem;
       margin-top: 0.5rem;
-    }
-    .divider {
-      height: 2px;
-      background: linear-gradient(to right, var(--primary), transparent);
-      margin: 0.5rem 0 1.2rem 0;
     }
     .contact-info p {
       display: flex;
@@ -238,8 +226,6 @@
       left: 0;
       color: var(--primary);
     }
-
-    /* ===== PORTOFOLIO GRID ===== */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -258,7 +244,7 @@
     }
     .project-img {
       height: 170px;
-      background: #e0e7ff; /* fallback jika gambar gagal dimuat */
+      background: #e0e7ff;
       overflow: hidden;
     }
     .project-img img {
@@ -305,8 +291,6 @@
     .project-body .links a:hover {
       text-decoration: underline;
     }
-
-    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       margin-top: 2.5rem;
@@ -315,8 +299,6 @@
       color: var(--text-light);
       font-size: 0.85rem;
     }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 800px) {
       .cv-grid {
         grid-template-columns: 1fr;
@@ -345,8 +327,8 @@
         gap: 0.2rem;
       }
       .avatar {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
       }
     }
   </style>
@@ -354,7 +336,7 @@
 <body>
   <div class="container">
 
-    <!-- ===== NAVBAR + TAB ===== -->
+    <!-- NAVBAR -->
     <nav>
       <div class="logo"><i class="fas fa-cubes"></i> Ilham Fahmi</div>
       <div class="tab-group" id="tabGroup">
@@ -363,16 +345,14 @@
       </div>
     </nav>
 
-    <!-- ===== TAB 1: CV ===== -->
+    <!-- TAB 1: CV -->
     <div id="cv" class="tab-content active">
       <div class="cv-grid">
 
-        <!-- SIDEBAR KIRI -->
+        <!-- SIDEBAR -->
         <aside>
-          <!-- Profil -->
           <div class="card profile">
             <div class="avatar">
-              <!-- GANTI nama file foto di sini -->
               <img src="images/foto-profil.png" alt="Foto Profil Ilham Fahmi">
             </div>
             <h1>Ilham Fahmi Sutrisno</h1>
@@ -384,7 +364,6 @@
             </p>
           </div>
 
-          <!-- Kontak -->
           <div class="card contact-info">
             <h2 style="font-size:1.1rem; display:flex; gap:0.6rem; margin-bottom:0.8rem;">
               <i class="fas fa-address-card" style="color:var(--primary);"></i> Kontak
@@ -395,31 +374,22 @@
             <p><i class="fas fa-map-marker-alt"></i> Tegal, Indonesia</p>
           </div>
 
-          <!-- Keahlian -->
           <div class="card">
             <h2 style="font-size:1.1rem; display:flex; gap:0.6rem; margin-bottom:0.8rem;">
               <i class="fas fa-code" style="color:var(--primary);"></i> Keterampilan
             </h2>
             <div class="skill-tags">
-              <span>SketchUp</span>
-              <span>SolidWorks</span>
-              <span>Aspire</span>
-              <span>Mach3</span>
-              <span>Ruida</span>
-              <span>StarCut</span>
-              <span>MS Office</span>
-              <span>Preventive Maintenance</span>
-              <span>Kalibrasi</span>
-              <span>Manajemen Inventaris</span>
-              <span>SOP</span>
-              <span>Gambar Teknik</span>
+              <span>SketchUp</span><span>SolidWorks</span><span>Aspire</span>
+              <span>Mach3</span><span>Ruida</span><span>StarCut</span>
+              <span>MS Office</span><span>Preventive Maintenance</span>
+              <span>Kalibrasi</span><span>Manajemen Inventaris</span>
+              <span>SOP</span><span>Gambar Teknik</span>
             </div>
           </div>
         </aside>
 
-        <!-- MAIN KANAN -->
+        <!-- MAIN -->
         <main>
-          <!-- Ringkasan -->
           <section class="card">
             <div class="section-title"><i class="fas fa-user-astronaut"></i> Profil Profesional</div>
             <p style="color:var(--text-light);">
@@ -431,7 +401,6 @@
             </p>
           </section>
 
-          <!-- Pengalaman -->
           <section class="card">
             <div class="section-title"><i class="fas fa-briefcase"></i> Pengalaman Kerja</div>
 
@@ -465,7 +434,6 @@
             </div>
           </section>
 
-          <!-- Pendidikan -->
           <section class="card">
             <div class="section-title"><i class="fas fa-graduation-cap"></i> Pendidikan</div>
             <div class="entry">
@@ -481,7 +449,7 @@
       </div>
     </div>
 
-    <!-- ===== TAB 2: PORTOFOLIO ===== -->
+    <!-- TAB 2: PORTOFOLIO -->
     <div id="portfolio" class="tab-content">
       <div style="margin-bottom:1.5rem;">
         <h2 style="font-size:1.8rem; display:flex; align-items:center; gap:0.8rem;">
@@ -490,11 +458,9 @@
       </div>
 
       <div class="project-grid">
-        <!-- Proyek 1 -->
         <div class="project-card">
           <div class="project-img">
-            <!-- GANTI nama file foto di sini -->
-            <img src="images/proyek-komponen-mesin.jpg" alt="Desain Komponen Mesin">
+            <img src="images/proyek-komponen-mesin.png" alt="Desain Komponen Mesin">
           </div>
           <div class="project-body">
             <h3>Desain Komponen Mesin</h3>
@@ -504,11 +470,9 @@
           </div>
         </div>
 
-        <!-- Proyek 2 -->
         <div class="project-card">
           <div class="project-img">
-            <!-- GANTI nama file foto di sini -->
-            <img src="images/proyek-toolpath-cnc.jpg" alt="Toolpath CNC Milling">
+            <img src="images/proyek-toolpath-cnc.png" alt="Toolpath CNC Milling">
           </div>
           <div class="project-body">
             <h3>Toolpath CNC Milling</h3>
@@ -518,11 +482,9 @@
           </div>
         </div>
 
-        <!-- Proyek 3 -->
         <div class="project-card">
           <div class="project-img">
-            <!-- GANTI nama file foto di sini -->
-            <img src="images/proyek-laser-plasma.jpg" alt="Cutting Laser & Plasma">
+            <img src="images/proyek-laser-plasma.png" alt="Cutting Laser & Plasma">
           </div>
           <div class="project-body">
             <h3>Cutting Laser &amp; Plasma</h3>
@@ -532,52 +494,42 @@
           </div>
         </div>
 
-        <!-- Proyek 4 -->
         <div class="project-card">
           <div class="project-img">
-            <!-- GANTI nama file foto di sini -->
-            <img src="images/proyek-kiosk.jpg" alt="Alur Produksi Kiosk">
+            <img src="images/proyek-kiosk.png" alt="Alur Produksi Kiosk">
           </div>
           <div class="project-body">
             <h3>Alur Produksi Kiosk (Design to Finish)</h3>
             <p>Menjelaskan proses kerja dari desain hingga menjadi produk kiosk jadi, mencakup pembuatan gambar teknik, pemotongan material, perakitan, hingga finishing.</p>
             <div class="tech">
-              <span>SketchUp</span>
-              <span>SolidWorks</span>
-              <span>CNC</span>
-              <span>Assembly</span>
+              <span>SketchUp</span><span>SolidWorks</span><span>CNC</span><span>Assembly</span>
             </div>
             <div class="links">
               <a href="#"><i class="fas fa-file-pdf"></i> Lihat Alur</a>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer>
       <small>&copy; 2026 Ilham Fahmi Sutrisno — Dibuat dengan <i class="fas fa-heart" style="color:#ef4444;"></i> &amp; GitHub Pages</small>
     </footer>
 
   </div>
 
-  <!-- ===== SCRIPT TAB ===== -->
   <script>
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = {
       cv: document.getElementById('cv'),
       portfolio: document.getElementById('portfolio')
     };
-
     tabBtns.forEach(btn => {
       btn.addEventListener('click', function() {
         tabBtns.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-
         Object.values(tabContents).forEach(el => el.classList.remove('active'));
-
         const target = this.dataset.tab;
         if (tabContents[target]) {
           tabContents[target].classList.add('active');
@@ -585,6 +537,5 @@
       });
     });
   </script>
-
 </body>
 </html>
