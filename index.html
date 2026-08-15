@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV & Portofolio | Ilham Fahmi Sutrisno</title>
+  <!-- Font Awesome 6 (tetap dipakai untuk ikon lainnya) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== RESET & VARIABEL ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-light: #475569;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --transition: 0.3s ease;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== NAVBAR & TAB ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 0.6rem 2rem;
+      border-radius: 60px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    .logo i {
+      margin-right: 8px;
+    }
+    .tab-group {
+      display: flex;
+      gap: 0.3rem;
+      background: var(--bg);
+      padding: 4px;
+      border-radius: 40px;
+    }
+    .tab-btn {
+      border: none;
+      background: transparent;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .tab-btn:hover:not(.active) {
+      color: var(--text);
+    }
+
+    /* ===== TAB CONTENT ===== */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== LAYOUT CV (2 kolom) ===== */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+    }
+    .profile {
+      text-align: center;
+    }
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden; /* penting agar gambar mengikuti bentuk bulat */
+      border: 4px solid var(--primary);
+      margin: 0 auto 1rem auto;
+      background: #dbeafe; /* fallback jika gambar gagal dimuat */
+      flex-shrink: 0;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile h1 {
+      font-size: 1.6rem;
+    }
+    .profile .title {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    .profile .bio {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    .divider {
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), transparent);
+      margin: 0.5rem 0 1.2rem 0;
+    }
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .contact-info i {
+      width: 22px;
+      color: var(--primary);
+      text-align: center;
+    }
+    .contact-info a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      color: var(--primary);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.3rem;
+    }
+    .skill-tags span {
+      background: #eef2ff;
+      color: var(--primary-dark);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .section-title i {
+      color: var(--primary);
+    }
+    .entry {
+      margin-bottom: 1.4rem;
+    }
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .entry-header h3 {
+      font-size: 1.05rem;
+    }
+    .entry-header .date {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      background: var(--bg);
+      padding: 0.15rem 0.9rem;
+      border-radius: 30px;
+    }
+    .entry .company {
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+    .entry ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin-top: 0.3rem;
+    }
+    .entry ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.93rem;
+      color: var(--text-light);
+      margin-bottom: 0.25rem;
+    }
+    .entry ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* ===== PORTOFOLIO GRID ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.8rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+    .project-img {
+      height: 170px;
+      background: #e0e7ff; /* fallback jika gambar gagal dimuat */
+      overflow: hidden;
+    }
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .project-body {
+      padding: 1.2rem 1.5rem 1.5rem;
+    }
+    .project-body h3 {
+      font-size: 1.15rem;
+    }
+    .project-body p {
+      color: var(--text-light);
+      font-size: 0.93rem;
+    }
+    .project-body .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+    .project-body .tech span {
+      background: #eef2ff;
+      color: var(--primary-dark);
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .project-body .links {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .project-body .links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .project-body .links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e2e8f0;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 800px) {
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem;
+      }
+      .tab-group {
+        width: 100%;
+        justify-content: center;
+      }
+      .tab-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.85rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== NAVBAR + TAB ===== -->
+    <nav>
+      <div class="logo"><i class="fas fa-cubes"></i> Ilham Fahmi</div>
+      <div class="tab-group" id="tabGroup">
+        <button class="tab-btn active" data-tab="cv"><i class="fas fa-file-alt"></i> CV</button>
+        <button class="tab-btn" data-tab="portfolio"><i class="fas fa-images"></i> Portofolio</button>
+      </div>
+    </nav>
+
+    <!-- ===== TAB 1: CV ===== -->
+    <div id="cv" class="tab-content active">
+      <div class="cv-grid">
+
+        <!-- SIDEBAR KIRI -->
+        <aside>
+          <!-- Profil -->
+          <div class="card profile">
+            <div class="avatar">
+              <!-- GANTI nama file foto di sini -->
+              <img src="images/foto-profil.jpg" alt="Foto Profil Ilham Fahmi">
+            </div>
+            <h1>Ilham Fahmi Sutrisno</h1>
+            <div class="title">Teknisi Manufaktur &amp; Drafter CNC</div>
+            <p class="bio">
+              Profesional teknis dengan pengalaman 5+ tahun di bidang pengoperasian mesin presisi,
+              perawatan preventif, dan manajemen inventaris. Berpengalaman dalam desain 2D/3D,
+              pembuatan toolpath, serta penyusunan SOP.
+            </p>
+          </div>
+
+          <!-- Kontak -->
+          <div class="card contact-info">
+            <h2 style="font-size:1.1rem; display:flex; gap:0.6rem; margin-bottom:0.8rem;">
+              <i class="fas fa-address-card" style="color:var(--primary);"></i> Kontak
+            </h2>
+            <p><i class="fas fa-phone-alt"></i> <a href="tel:+6285211004221">0852 1100 4221</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:ilhamf858@gmail.com">ilhamf858@gmail.com</a></p>
+            <p><i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/ilhamf858" target="_blank">linkedin.com/in/ilhamf858</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Tegal, Indonesia</p>
+          </div>
+
+          <!-- Keahlian -->
+          <div class="card">
+            <h2 style="font-size:1.1rem; display:flex; gap:0.6rem; margin-bottom:0.8rem;">
+              <i class="fas fa-code" style="color:var(--primary);"></i> Keterampilan
+            </h2>
+            <div class="skill-tags">
+              <span>SketchUp</span>
+              <span>SolidWorks</span>
+              <span>Aspire</span>
+              <span>Mach3</span>
+              <span>Ruida</span>
+              <span>StarCut</span>
+              <span>MS Office</span>
+              <span>Preventive Maintenance</span>
+              <span>Kalibrasi</span>
+              <span>Manajemen Inventaris</span>
+              <span>SOP</span>
+              <span>Gambar Teknik</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN KANAN -->
+        <main>
+          <!-- Ringkasan -->
+          <section class="card">
+            <div class="section-title"><i class="fas fa-user-astronaut"></i> Profil Profesional</div>
+            <p style="color:var(--text-light);">
+              Teknisi Manufaktur dan Profesional Teknis berpengalaman lebih dari 5 tahun dalam
+              pengoperasian mesin presisi, perawatan preventif, serta manajemen inventaris material.
+              Memiliki keahlian kuat dalam analisis data teknis, kalibrasi alat ukur, penyusunan SOP kerja,
+              serta penerapan standar keselamatan operasional. Terbiasa bekerja dengan detail tinggi,
+              adaptif, dan siap mendukung operasional teknis maupun pendampingan praktikum.
+            </p>
+          </section>
+
+          <!-- Pengalaman -->
+          <section class="card">
+            <div class="section-title"><i class="fas fa-briefcase"></i> Pengalaman Kerja</div>
+
+            <div class="entry">
+              <div class="entry-header">
+                <h3>Teknisi Manufaktur &amp; Drafter</h3>
+                <span class="date">Jan 2025 — Sekarang</span>
+              </div>
+              <div class="company">PT. ONESIA NUSANTARA EVOLUSIONER</div>
+              <ul>
+                <li>Membuat desain komponen dan rakitan menggunakan SketchUp (2D &amp; 3D) serta SolidWorks.</li>
+                <li>Mengonversi model 3D menjadi gambar teknik 2D standar produksi untuk meminimalisir kesalahan.</li>
+                <li>Menyiapkan, mengoperasikan, dan melakukan maintenance berkala pada mesin CNC, Plasma, dan Laser.</li>
+                <li>Melakukan quality control dan pengukuran presisi menggunakan caliper &amp; micrometer.</li>
+                <li>Mengatur inventarisasi bahan baku dan mengkoordinasikan alur kerja tim produksi.</li>
+              </ul>
+            </div>
+
+            <div class="entry">
+              <div class="entry-header">
+                <h3>Drafter CNC &amp; Teknisi CNC</h3>
+                <span class="date">2021 — 2024</span>
+              </div>
+              <div class="company">KRAWANGAN GYPSUM TEGAL</div>
+              <ul>
+                <li>Membuat desain kustom 2D/3D sesuai permintaan klien dan mengolahnya menjadi toolpath menggunakan Aspire.</li>
+                <li>Mengontrol penuh proses pemotongan dan grafir pada mesin CNC Milling dengan Mach3.</li>
+                <li>Bertanggung jawab atas perawatan rutin mesin, kebersihan area kerja, dan keselamatan operasional.</li>
+                <li>Mengelola ketersediaan bahan baku serta menyusun laporan hasil kerja harian.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Pendidikan -->
+          <section class="card">
+            <div class="section-title"><i class="fas fa-graduation-cap"></i> Pendidikan</div>
+            <div class="entry">
+              <div class="entry-header">
+                <h3>SMK Muhammadiyah 01 Tegal</h3>
+                <span class="date">2007 — 2010</span>
+              </div>
+              <div class="company">Jurusan Teknik Mesin / Manufaktur</div>
+              <p>Fokus pada teknik pemesinan, gambar teknik, dan dasar-dasar CNC.</p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ===== TAB 2: PORTOFOLIO ===== -->
+    <div id="portfolio" class="tab-content">
+      <div style="margin-bottom:1.5rem;">
+        <h2 style="font-size:1.8rem; display:flex; align-items:center; gap:0.8rem;">
+          <i class="fas fa-folder-open" style="color:var(--primary);"></i> Proyek Unggulan
+        </h2>
+      </div>
+
+      <div class="project-grid">
+        <!-- Proyek 1 -->
+        <div class="project-card">
+          <div class="project-img">
+            <!-- GANTI nama file foto di sini -->
+            <img src="images/proyek-komponen-mesin.jpg" alt="Desain Komponen Mesin">
+          </div>
+          <div class="project-body">
+            <h3>Desain Komponen Mesin</h3>
+            <p>Model 3D dan gambar teknik 2D untuk komponen mesin produksi menggunakan SolidWorks &amp; SketchUp.</p>
+            <div class="tech"><span>SolidWorks</span><span>SketchUp</span></div>
+            <div class="links"><a href="#"><i class="fab fa-github"></i> Lihat</a></div>
+          </div>
+        </div>
+
+        <!-- Proyek 2 -->
+        <div class="project-card">
+          <div class="project-img">
+            <!-- GANTI nama file foto di sini -->
+            <img src="images/proyek-toolpath-cnc.jpg" alt="Toolpath CNC Milling">
+          </div>
+          <div class="project-body">
+            <h3>Toolpath CNC Milling</h3>
+            <p>Pembuatan relief dan toolpath kompleks untuk produk gypsum kustom dengan Aspire &amp; Mach3.</p>
+            <div class="tech"><span>Aspire</span><span>Mach3</span></div>
+            <div class="links"><a href="#"><i class="fas fa-play"></i> Demo</a></div>
+          </div>
+        </div>
+
+        <!-- Proyek 3 -->
+        <div class="project-card">
+          <div class="project-img">
+            <!-- GANTI nama file foto di sini -->
+            <img src="images/proyek-laser-plasma.jpg" alt="Cutting Laser & Plasma">
+          </div>
+          <div class="project-body">
+            <h3>Cutting Laser &amp; Plasma</h3>
+            <p>Optimasi parameter pemotongan dan maintenance rutin mesin laser/plasma untuk hasil presisi.</p>
+            <div class="tech"><span>Ruida</span><span>StarCut</span></div>
+            <div class="links"><a href="#"><i class="fas fa-file-pdf"></i> Laporan</a></div>
+          </div>
+        </div>
+
+        <!-- Proyek 4 -->
+        <div class="project-card">
+          <div class="project-img">
+            <!-- GANTI nama file foto di sini -->
+            <img src="images/proyek-kiosk.jpg" alt="Alur Produksi Kiosk">
+          </div>
+          <div class="project-body">
+            <h3>Alur Produksi Kiosk (Design to Finish)</h3>
+            <p>Menjelaskan proses kerja dari desain hingga menjadi produk kiosk jadi, mencakup pembuatan gambar teknik, pemotongan material, perakitan, hingga finishing.</p>
+            <div class="tech">
+              <span>SketchUp</span>
+              <span>SolidWorks</span>
+              <span>CNC</span>
+              <span>Assembly</span>
+            </div>
+            <div class="links">
+              <a href="#"><i class="fas fa-file-pdf"></i> Lihat Alur</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <small>&copy; 2026 Ilham Fahmi Sutrisno — Dibuat dengan <i class="fas fa-heart" style="color:#ef4444;"></i> &amp; GitHub Pages</small>
+    </footer>
+
+  </div>
+
+  <!-- ===== SCRIPT TAB ===== -->
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = {
+      cv: document.getElementById('cv'),
+      portfolio: document.getElementById('portfolio')
+    };
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        Object.values(tabContents).forEach(el => el.classList.remove('active'));
+
+        const target = this.dataset.tab;
+        if (tabContents[target]) {
+          tabContents[target].classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
