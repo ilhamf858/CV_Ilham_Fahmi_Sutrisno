@@ -113,18 +113,23 @@
     .avatar {
       width: 140px;
       height: 140px;
-      border-radius: 8px;   /* <-- TIDAK BULAT, hanya sedikit melengkung */
-      overflow: hidden;
-      border: 3px solid var(--primary);
-      box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+      /* TANPA BINGKAI & TIDAK BULAT */
+      border: none;
+      border-radius: 0;
+      overflow: visible; /* agar gambar tidak terpotong */
       margin: 0 auto 1rem auto;
-      background: #dbeafe;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .avatar img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* seluruh gambar terlihat utuh, tidak terpotong */
       display: block;
+      border: none;
+      border-radius: 0;
     }
     .profile h1 {
       font-size: 1.6rem;
