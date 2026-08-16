@@ -25,9 +25,9 @@
       box-sizing: border-box;
     }
     :root {
-      --primary: #f97316;        /* ORANYE UTAMA */
-      --primary-dark: #ea580c;   /* ORANYE GELAP */
-      --primary-light: #ffedd5;  /* ORANYE SANGAT MUDAH (untuk latar) */
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --primary-light: #ffedd5;
       --bg: #f1f5f9;
       --card-bg: #ffffff;
       --text: #0f172a;
@@ -246,7 +246,7 @@
       color: var(--primary);
     }
 
-    /* ===== PORTOFOLIO (Teks + Gambar) ===== */
+    /* ===== PORTOFOLIO ===== */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -313,7 +313,7 @@
       text-decoration: underline;
     }
 
-    /* ===== GALERI FOTO + LIGHTBOX ===== */
+    /* ===== GALERI ===== */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -325,6 +325,7 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
     }
     .gallery-item:hover {
       transform: scale(1.02);
@@ -332,12 +333,29 @@
     }
     .gallery-item a {
       display: block;
+      position: relative;
     }
     .gallery-item img {
       width: 100%;
       height: 240px;
       object-fit: cover;
       display: block;
+    }
+    .gallery-item .pdf-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(239, 68, 68, 0.9);
+      color: #fff;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .gallery-item .caption {
       padding: 0.8rem 1rem;
@@ -346,6 +364,13 @@
       color: var(--text-light);
       font-size: 0.9rem;
       background: var(--card-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .gallery-item .caption i {
+      color: var(--primary);
     }
 
     footer {
@@ -400,7 +425,7 @@
 
     <!-- ===== NAVBAR + 3 TAB ===== -->
     <nav>
-      <div class="logo"><i class="fas fa-cubes"></i> Ilham Fahmi</div>
+      <div class="logo"><i class="fas fa-cubes"></i> Ilham Fahmi Sutrisno</div>
       <div class="tab-group" id="tabGroup">
         <button class="tab-btn active" data-tab="cv"><i class="fas fa-file-alt"></i> CV</button>
         <button class="tab-btn" data-tab="portfolio"><i class="fas fa-folder-open"></i> Portofolio</button>
@@ -421,9 +446,9 @@
             <h1>Ilham Fahmi Sutrisno</h1>
             <div class="title">Teknisi Manufaktur &amp; Drafter CNC</div>
             <p class="bio">
-              Profesional teknis dengan pengalaman 5+ tahun di bidang pengoperasian mesin presisi,
-              perawatan preventif, dan manajemen inventaris. Berpengalaman dalam desain 2D/3D,
-              pembuatan toolpath, serta penyusunan SOP.
+              Teknisi Manufaktur berpengalaman 5+ tahun dalam desain, produksi, dan perawatan mesin presisi.
+              Menguasai SolidWorks, SketchUp, Aspire, serta sistem kontrol CNC (Mach3, Ruida).
+              Berkomitmen pada kualitas, efisiensi, dan prosedur kerja yang aman.
             </p>
           </div>
 
@@ -456,11 +481,11 @@
           <section class="card">
             <div class="section-title"><i class="fas fa-user-astronaut"></i> Profil Profesional</div>
             <p style="color:var(--text-light);">
-              Teknisi Manufaktur dan Profesional Teknis berpengalaman lebih dari 5 tahun dalam
-              pengoperasian mesin presisi, perawatan preventif, serta manajemen inventaris material.
-              Memiliki keahlian kuat dalam analisis data teknis, kalibrasi alat ukur, penyusunan SOP kerja,
-              serta penerapan standar keselamatan operasional. Terbiasa bekerja dengan detail tinggi,
-              adaptif, dan siap mendukung operasional teknis maupun pendampingan praktikum.
+              Teknisi Manufaktur berpengalaman 5+ tahun dengan rekam jejak dalam mengoptimalkan proses produksi,
+              mulai dari desain hingga produk jadi. Ahli dalam pengoperasian mesin presisi (CNC, Laser, Plasma),
+              perawatan preventif, dan manajemen inventaris. Terampil membaca gambar teknik, membuat toolpath,
+              serta menyusun SOP kerja yang efektif. Berorientasi pada detail dan kualitas, siap mendukung
+              operasional teknis di lingkungan industri maupun akademik.
             </p>
           </section>
 
@@ -474,11 +499,11 @@
               </div>
               <div class="company">PT. ONESIA NUSANTARA EVOLUSIONER</div>
               <ul>
-                <li>Membuat desain komponen dan rakitan menggunakan SketchUp (2D &amp; 3D) serta SolidWorks.</li>
-                <li>Mengonversi model 3D menjadi gambar teknik 2D standar produksi untuk meminimalisir kesalahan.</li>
-                <li>Menyiapkan, mengoperasikan, dan melakukan maintenance berkala pada mesin CNC, Plasma, dan Laser.</li>
-                <li>Melakukan quality control dan pengukuran presisi menggunakan caliper &amp; micrometer.</li>
-                <li>Mengatur inventarisasi bahan baku dan mengkoordinasikan alur kerja tim produksi.</li>
+                <li>Merancang komponen dan rakitan 3D/2D menggunakan SolidWorks &amp; SketchUp, serta menyusun gambar teknik standar produksi untuk meminimalisir kesalahan fabrikasi.</li>
+                <li>Mengoperasikan dan memelihara mesin CNC, Plasma, dan Laser Cutting, termasuk setting parameter dan perawatan rutin untuk menjaga akurasi.</li>
+                <li>Melaksanakan inspeksi kualitas dengan alat ukur presisi (caliper, micrometer) dan memastikan produk sesuai spesifikasi.</li>
+                <li>Mengelola stok material dan mengoordinasikan alur kerja tim produksi agar target tercapai tepat waktu.</li>
+                <li>Menyusun laporan teknis dan rekomendasi perbaikan proses untuk meningkatkan efisiensi produksi.</li>
               </ul>
             </div>
 
@@ -489,10 +514,10 @@
               </div>
               <div class="company">KRAWANGAN GYPSUM TEGAL</div>
               <ul>
-                <li>Membuat desain kustom 2D/3D sesuai permintaan klien dan mengolahnya menjadi toolpath menggunakan Aspire.</li>
-                <li>Mengontrol penuh proses pemotongan dan grafir pada mesin CNC Milling dengan Mach3.</li>
-                <li>Bertanggung jawab atas perawatan rutin mesin, kebersihan area kerja, dan keselamatan operasional.</li>
-                <li>Mengelola ketersediaan bahan baku serta menyusun laporan hasil kerja harian.</li>
+                <li>Membuat desain kustom (relief, ornamen, produk gypsum) dan mengonversinya menjadi toolpath presisi menggunakan Aspire.</li>
+                <li>Mengoperasikan mesin CNC Milling (Mach3) untuk proses pemotongan dan grafir dengan tingkat akurasi tinggi.</li>
+                <li>Melakukan perawatan rutin mesin dan menjaga kebersihan area kerja untuk mendukung kelancaran operasional.</li>
+                <li>Mengelola ketersediaan bahan baku dan menyusun laporan produksi harian secara sistematis.</li>
               </ul>
             </div>
           </section>
@@ -579,59 +604,66 @@
       </div>
     </div>
 
-    <!-- ===== TAB 3: GALERI FOTO + LIGHTBOX ===== -->
+    <!-- ===== TAB 3: GALERI (FOTO DI ATAS, PDF DI BAWAH) ===== -->
     <div id="gallery" class="tab-content">
       <div style="margin-bottom:1.5rem;">
         <h2 style="font-size:1.8rem; display:flex; align-items:center; gap:0.8rem;">
-          <i class="fas fa-images" style="color:var(--primary);"></i> Galeri Proyek
+          <i class="fas fa-images" style="color:var(--primary);"></i> Galeri Proyek & Dokumen
         </h2>
-        <p style="color:var(--text-light);">Klik foto untuk memperbesar.</p>
+        <p style="color:var(--text-light);">Klik foto untuk memperbesar. Dokumen PDF akan terbuka di tab baru.</p>
       </div>
 
       <div class="gallery-grid">
-        <!-- Setiap foto dibungkus <a> agar bisa di-lightbox -->
+
+        <!-- ===== BAGIAN FOTO (3 ITEM) ===== -->
         <div class="gallery-item">
           <a href="images/galeri-1.png" data-lightbox="gallery" data-title="Proses Pemotongan CNC">
-            <img src="images/galeri-1.png" alt="Proses CNC 1">
+            <img src="images/galeri-1.png" alt="Proses CNC">
           </a>
-          <div class="caption">Proses Pemotongan CNC</div>
+          <div class="caption"><i class="fas fa-image"></i> Proses Pemotongan CNC</div>
         </div>
 
         <div class="gallery-item">
           <a href="images/galeri-2.png" data-lightbox="gallery" data-title="Desain 3D SolidWorks">
             <img src="images/galeri-2.png" alt="Desain 3D">
           </a>
-          <div class="caption">Desain 3D SolidWorks</div>
+          <div class="caption"><i class="fas fa-image"></i> Desain 3D SolidWorks</div>
         </div>
 
         <div class="gallery-item">
           <a href="images/galeri-3.png" data-lightbox="gallery" data-title="Hasil Produksi Akhir">
             <img src="images/galeri-3.png" alt="Hasil Produksi">
           </a>
-          <div class="caption">Hasil Produksi Akhir</div>
+          <div class="caption"><i class="fas fa-image"></i> Hasil Produksi Akhir</div>
+        </div>
+
+        <!-- ===== BAGIAN PDF (3 ITEM) ===== -->
+        <div class="gallery-item">
+          <a href="files/gambar-teknik-1.pdf" target="_blank">
+            <img src="images/thumbnail-pdf-1.png" alt="Thumbnail Gambar Teknik">
+            <span class="pdf-badge"><i class="fas fa-file-pdf"></i> PDF</span>
+          </a>
+          <div class="caption"><i class="fas fa-file-pdf" style="color:#ef4444;"></i> Gambar Teknik Mesin</div>
         </div>
 
         <div class="gallery-item">
-          <a href="images/galeri-4.png" data-lightbox="gallery" data-title="Proses Cutting Laser">
-            <img src="images/galeri-4.png" alt="Proses Laser">
+          <a href="files/sop-produksi.pdf" target="_blank">
+            <img src="images/thumbnail-pdf-2.png" alt="Thumbnail SOP Produksi">
+            <span class="pdf-badge"><i class="fas fa-file-pdf"></i> PDF</span>
           </a>
-          <div class="caption">Proses Cutting Laser</div>
+          <div class="caption"><i class="fas fa-file-pdf" style="color:#ef4444;"></i> SOP Produksi</div>
         </div>
 
         <div class="gallery-item">
-          <a href="images/galeri-5.png" data-lightbox="gallery" data-title="Proses Perakitan (Assembly)">
-            <img src="images/galeri-5.png" alt="Assembly">
+          <a href="files/laporan-proyek.pdf" target="_blank">
+            <img src="images/thumbnail-pdf-3.png" alt="Thumbnail Laporan Proyek">
+            <span class="pdf-badge"><i class="fas fa-file-pdf"></i> PDF</span>
           </a>
-          <div class="caption">Proses Perakitan (Assembly)</div>
+          <div class="caption"><i class="fas fa-file-pdf" style="color:#ef4444;"></i> Laporan Proyek Kiosk</div>
         </div>
 
-        <div class="gallery-item">
-          <a href="images/galeri-6.png" data-lightbox="gallery" data-title="Finishing & Quality Control">
-            <img src="images/galeri-6.png" alt="Finishing">
-          </a>
-          <div class="caption">Finishing &amp; Quality Control</div>
-        </div>
-        <!-- Tambahkan lebih banyak foto jika perlu, duplikat blok di atas -->
+        <!-- TAMBAHKAN ITEM FOTO ATAU PDF LAGI DI SINI (duplikat blok) -->
+
       </div>
     </div>
 
